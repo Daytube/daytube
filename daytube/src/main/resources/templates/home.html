@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" data-bs-theme="auto"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- 웹 문서의 속성 선언 -->
+<head>
+    <!-- metaData 정의 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        h1 {
+            margin: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 10px auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        .grid-item {
+            background-color: #ddd;
+            padding: 10px;
+            margin-bottom: 5%;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .grid-item-text {
+            padding-top: 2%;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .grid-item .front img {
+            max-width: 100%; /* 이미지의 최대 너비를 100%로 설정 */
+            height: auto; /* 높이 자동으로 조정 */
+        }
+        .grid-item-text.bold-text {
+            font-weight: bold;
+        }
+        .grid-item-text.gray-text {
+            color: gray;
+        }
+        .grid-item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+            padding-top: 2%;
+        }
+        .tag {
+            color: white;
+            background-color: blue;
+            padding: 5px 10px;
+            border-radius: 20px; /* 테두리가 둥근 직사각형 스타일 적용 */
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.1s;
+            cursor: pointer;
+        }
+        .tag:hover {
+            transform: translateY(-2.5px);
+        }
+
+        /* "To Top" 버튼 스타일 */
+        #toTopButton {
+            display: none; /* 페이지 로드 시 숨김 */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1;
+            width: 40px; /* 동일한 너비와 높이로 설정하여 원 모양으로 만들기 */
+            height: 40px;
+            background-color: #888; /* 회색 배경색 */
+            color: #fff;
+            border: none;
+            border-radius: 50%; /* 원 모양으로 만들기 */
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 40px; /* 텍스트 세로 중앙 정렬 */
+            text-align: center; /* 텍스트 가로 중앙 정렬 */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        #toTopButton:hover {
+            background-color: #666; /* 호버 시 색상 변경 */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text;
+        }
+
+        // 랜덤 색상 생성 함수
+        function getRandomColor() {
+            var letters = '0123456789';
+            var color = '#';
+            for (var i = 0; i < 3; i++) {
+                color += letters[Math.floor(Math.random() * 10)];
+            }
+            return color;
+        }
+
+        // 랜덤 배경색 적용 함수
+        function setRandomBackgroundColor(tag) {
+            tag.style.backgroundColor = getRandomColor();
+        }
+
+        function showPopup(tag) {
+            var placeData = [
+                {
+                    name: "차차티클럽연남",
+                    location: "서울 마포구 동교로30길 6 4,5층",
+                    grade: "4.3",
+                    hours: "영업시간 화~일 13:00 ~ 22:00",
+                    contact: "070-8865-4758"
+                },
+                {
+                    name: "애프터모닝",
+                    location: "서울 마포구 연희로1길 29 2층",
+                    grade: "4.8",
+                    hours: "월,일 10:00 ~ 24:00",
+                    contact: "https://www.instagram.com/aftermorning_seoul/"
+                },
+                {
+                    name: "도토리캐리커쳐",
+                    location: "서울 마포구 동교로38길 34 지하1층",
+                    grade: "3.5",
+                    hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
+                    contact: "-"
+                },
+                {
+                    name: "서울콜렉터",
+                    location: "서울 마포구 성미산로 191 2층 201호",
+                    grade: "4.4",
+                    hours: "영업시간 일 12:00 ~ 19:00",
+                    contact: "070-7793-0611"
+                },
+                {
+                    name: "땡스네이쳐",
+                    location: "서울 마포구 홍익로 10 푸르지오상가 지하1층 121호",
+                    grade: "4.2",
+                    hours: "영업시간 매일 12:00 ~ 21:00",
+                contact: "02-332-7470"
+        },
+                {
+                    name: "T팩토리",
+                    location: "서울 마포구 양화로 144 1층",
+                    grade: "3.5",
+                    hours: "영업시간 매일 11:00 ~ 21:00",
+                contact: "02-1599-2641"
+        },
+                {
+                    name: "청수당공명",
+                    location: "서울 마포구 성미산로 152",
+                    grade: "3.8",
+                    hours: "영업시간 매일 11:00 ~ 22:00",
+                contact: "070-7791-7972"
+        },
+                {
+                    name: "Deweet",
+                    location: "서울 마포구 동교로 242-5 2층",
+                    grade: "4.2",
+                    hours: "영업시간 수~일 12:00 ~ 23:00",
+                contact: "02-324-2017"
+        },
+                {
+                    name: "루나씨엘로",
+                    location: "서울 마포구 동교로34길 21 2,3층",
+                    grade: "4.1",
+                    hours: "매일 12:00 ~ 23:00 매일 휴게시간 15:00 ~ 17:00",
+                contact: "070-4110-3815"
+        },
+                {
+                    name: "앤티크커피연남",
+                    location: "서울 마포구 연희로 25-1 1층",
+                    grade: "3.1",
+                    hours: "영업시간 매일 10:00 ~ 22:00",
+                contact: "-"
+        },
+                {
+                    name: "코리코카페",
+                    location: "서울 마포구 성미산로 165-7 지하1층, 1~2층",
+                    grade: "4.2",
+                    hours: "영업시간 매일 11:00 ~ 20:00",
+                contact: "02-6373-3346"
+        },
+                {
+                    name: "도토리캐리커쳐",
+                    location: "서울 마포구 동교로38길 34 지하1층",
+                    grade: "3.5",
+                    hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
+                contact: "-"
+        },
+                {
+                    name: "카페꼼마연남",
+                    location: "서울 마포구 포은로 49",
+                    grade: "5.0",
+                    hours: "영업시간 매일 10:30 ~ 22:00",
+                contact: "070-4179-2205"
+        },
+                {
+                    name: "마우디",
+                    location: "서울 서대문구 연희로11길 18 1층",
+                    grade: "4.4",
+                    hours: "영업시간 매일 11:30 ~ 21:30",
+                contact: "02-6052-4522"
+        },
+                {
+                    name: "지구샵 연남",
+                    location: "서울 마포구 성미산로 155 1층",
+                    grade: "4.2",
+                    hours: "영업시간 월,수,목,금,토,일 11:00 ~ 21:30",
+                contact: "02-812-2050"
+        },
+                {
+                    name: "하쿠텐라멘",
+                    location: "서울 마포구 동교로 266-12",
+                    grade: "4.5",
+                    hours: "월,화,목,금,토,일 11:30 ~ 21:00 월,화,목,금,토,일 휴게시간 15:00 ~ 17:00",
+                contact: "02-3144-3758"
+        },
+                {
+                    name: "네시사분",
+                    location: "서울 마포구 성미산로 190-8 1층",
+                    grade: "4.5",
+                    hours: "영업시간 화,수,목,금,일 13:00 ~ 22:00",
+                contact: "02-6405-3877"
+        },
+                {
+                    name: "돈룩업 연남",
+                    location: "서울 마포구 동교로46길 33",
+                    grade: "4.8",
+                    hours: "매일 00:00 ~ 24:00",
+                contact: "0507-1331-8613"
+        },
+                {
+                    name: "소이연남 연남",
+                    location: "서울 마포구 동교로 267 1층",
+                    grade: "4.0",
+                    hours: "매일 11:00 ~ 21:00 매일 휴게시간 15:00 ~ 17:00",
+                contact: "02-323-5130"
+        },
+                {
+                    name: "버터앤쉘터 연남",
+                    location: "서울 마포구 성미산로 170 102호",
+                    grade: "4.4",
+                    hours: "영업시간 매일 10:00 ~ 21:00",
+                contact: "-"
+        },
+                {
+                    name: "T팩토리",
+                    location: "서울 마포구 양화로 144 1층",
+                    grade: "3.5",
+                    hours: "영업시간 매일 11:00 ~ 21:00",
+                contact: "02-1599-2641"
+        },
+                {
+                    name: "4233 마음센터",
+                    location: "서울 마포구 월드컵북로4길 43 지하1층",
+                    grade: "3.5",
+                    hours: "영업시간 매일 11:00 ~ 21:00",
+                contact: "0507-1357-4418"
+        },
+                {
+                    name: "라비헤어 홍대점",
+                    location: "서울 마포구 양화로 100 2층",
+                    grade: "4.3",
+                    hours: "영업시간 월,화,수,목,금,일 11:00 ~ 21:00",
+                contact: "02-325-0401"
+        },
+                {
+                    name: "오디티모드 홍대",
+                    location: "서울 서대문구 연세로 13 유플렉스 지하 1층",
+                    grade: "5.0",
+                    hours: "영업시간 매일 10:30 ~ 22:00",
+                contact: "02-3145-1735"
+        },
+                {
+                    name: "거북이의꿈 연남",
+                    location: "서울 마포구 성미산로 190-31",
+                    grade: "4.6",
+                    hours: "화~일 11:30 ~ 21:00 화~일 휴게시간 15:30 ~ 17:00",
+                contact: "02-336-2633"
+        },
+                {
+                    name: "아티웨이브",
+                    location: "서울 마포구 동교로46길 12 1,5층 101호",
+                    grade: "4.4",
+                    hours: "영업시간 월,금,토,일 12:00 ~ 20:00",
+                contact: "02-332-2633"
+        },
+                {
+                    name: "홍대 카카오프렌즈샵",
+                    location: "서울 마포구 양화로 162 좋은사람들빌딩 1~3층",
+                    grade: "4.3",
+                    hours: "영업시간 매일 10:30 ~ 22:00",
+                contact: "02-6010-0104"
+        },
+                {
+                    name: "비포블루밍",
+                    location: "서울 마포구 양화로23길 28",
+                    grade: "4.2",
+                    hours: "영업시간 매일 12:00 ~ 22:00",
+                contact: "https://www.instagram.com/before.blooming"
+                },
+                {
+                    name: "경의선숲길",
+                    location: "서울 마포구 동교동 190-1",
+                    grade: "4.6",
+                    hours: "-",
+                    contact: "02-719-8830"
+                },
+                {
+                    name: "코코넛박스",
+                    location: "서울 마포구 홍익로3길 20 서교프라자 지하2층",
+                    grade: "4.2",
+                    hours: "영업시간 매일 09:00 ~ 20:00",
+                contact: "02-3144-6300"
+        },
+                {
+                    name: "오사이초밥 홍대",
+                    location: "서울 마포구 연희로1길 11 2층",
+                    grade: "3.9",
+                    hours: "매일 10:00 ~ 22:00 매일 휴게시간 15:00 ~ 17:00",
+                contact: "02-332-5425"
+        },
+                {
+                    name: "씨더라이트",
+                    location: "서울 마포구 양화로18안길 16 지하1층",
+                    grade: "3.4",
+                    hours: "일요일 휴무",
+                    contact: "010-7389-9981"
+                },
+                {
+                    name: "버바나",
+                    location: "서울 마포구 월드컵북로6길 88 1층",
+                    grade: "4.2",
+                    hours: "2023년 10월 16일 ~ 2023년 11월 30일 휴무",
+                    contact: "02-332-2498"
+                },
+                {
+                    name: "엘리카메라 연남",
+                    location: "서울 마포구 성암로 28 가좌행복주택 1동 1층 103호",
+                    grade: "5.0",
+                    hours: "영업시간 수~일 15:00 ~ 19:00",
+                contact: "1666-0136"
+        },
+                {
+                    name: "띵크오브 연남",
+                    location: "서울 마포구 성미산로29길 30-3 101호",
+                    grade: "5.0",
+                    hours: "영업시간 화~일 13:00 ~ 19:00",
+                contact: "010-6466-1898"
+        },
+                {
+                    name: "커피냅로스터스 연남",
+                    location: "서울 마포구 성미산로27길 70 1층",
+                    grade: "4.3",
+                    hours: "영업시간 토,일 09:00 ~ 20:00",
+                contact: "02-332-4131"
+        }
+            ]
+
+            name = tag.split("#")[1]
+
+            for (var i = 0; i < placeData.length; i++) {
+                if (placeData[i].name === name) {
+                    var matchingPlace = placeData[i];
+                    alert("이름: " + placeData[i].name + "\n위치: " + placeData[i].location + "\n평점: " + placeData[i].grade + "\n시간: " + placeData[i].hours + "\n연락처: " + placeData[i].contact);
+                    break;
+                }
+            }
+        }
+
+        // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
+        document.addEventListener('DOMContentLoaded', function() {
+            var gridItemData = [
+                {
+                    url: "4yX6BK-JVno",
+                    title: "떠먹여주는 연남동 데이트 코스ㅣ핫플, 연남동 맛집, 연남동 카페, 서울가볼만한 곳, 서울데이트 추천ㅣ차차티클럽, 애프터모닝, 계담다, 도토리 캐리커쳐, 서울콜렉터, 휘겔리후스",
+                    youtuber: "라이프샷 Life shot",
+                    place: "차차티클럽연남|애프터모닝|도토리캐리커쳐|서울콜렉터"
+                },
+                {
+                    url: "I_11pEjVg8c",
+                    title: "떠먹여주는 홍대 이색 데이트 코스ㅣ핫플, 홍대맛집, 홍대카페, 이색 데이트, 서울가볼만한 곳, 서울데이트 추천ㅣ땡스네이쳐, T팩토리, 마시타야, 무신사 테라스",
+                    youtuber: "라이프샷 Life shot",
+                    place: "땡스네이쳐|T팩토리"
+                },
+                {
+                    url: "qR0Es1hJJ1w",
+                    title: "저랑 데이트하실래요..? 연남동 주민이 강추하는 데이트 맛집!(청수당공명 / Deweet / 루나씨엘로)",
+                    youtuber: "매기는녀석들",
+                    place: "청수당공명|Deweet|루나씨엘로"
+                },
+                {
+                    url: "nzj6rYpxtVU",
+                    title: "또 가고 싶은 홍대/연남동 카페,맛집 베스트 4 | 홍대 맛집, 연남동 맛집, 연남동 데이트, 홍대 데이트, 서울 맛집, 서울 데이트, 서울 갈만한곳 | 앤티크커피,코리코카페,소점",
+                    youtuber: "라이프샷 Life shot",
+                    place: "앤티크커피연남|코리코카페"
+                },
+                {
+                    url: "zLmn8j-JxDI",
+                    title: "[VLOG] 연남동 핫플 데이트/연남동 카페/ 마가렛 연남 / 도토리 캐리커쳐",
+                    youtuber: "레나빈Renabin",
+                    place: "도토리캐리커쳐"
+                },
+                {
+                    url: "Tc2MACYp2Ys",
+                    title: "연남동,연희동 브이로그 :: 완벽한 하루코스 | 먹짱 추천 대맛집 | 다이닝바 도부 | 마우디 | 구경거리도 가득 | 카페꼼마연남",
+                    youtuber: "깬쥐록",
+                    place: "카페꼼마연남|마우디|지구샵 연남"
+                },
+                {
+                    url: "eZU2nDykhig",
+                    title: "[VLOG] 연남동 데이트 코스 | 셀프사진관 | 오디티모드 | 하쿠텐라멘 | 네시사분 | 서울데이트코스 | 일상 브이로그 | Hongdae",
+                    youtuber: "봉부봉 BONGBOO",
+                    place: "하쿠텐라멘|네시사분"
+                },
+                {
+                    url: "ZckpleRZDao",
+                    title: "서울여행브이로그 l 뚜벅이여행 연남동,홍대 맛집 카페 핫플투어 여행코스 추천(소이연남,하우웨버,소품샵,버터앤쉘터),한강야경(한강라면,유람선)돈룩업,Seoul Tour vlog",
+                    youtuber: "기록로그",
+                    place: "돈룩업 연남|소이연남 연남|버터앤쉘터 연남"
+                },
+                {
+                    url: "MkK6oKbfEdo",
+                    title: "홍대에서 나홀로 데이트를 즐기는 걸그룹..ㅣ티팩토리ㅣ홍콩식당ㅣ구독자 이벤트",
+                    youtuber: "그냥 조현영 [Just hyunyoung]",
+                    place: "T팩토리"
+                },
+                {
+                    url: "Oq5LLcmdzHg",
+                    title: "[VLOG] 홍대 데이트 브이로그 | 4233 마음센터 | 홍대 이색 데이트 | 홍대 데이트 코스 | 데이트 코디 데일리룩 여친룩",
+                    youtuber: "희희룩 HEEHEELOOK",
+                    place: "4233 마음센터"
+                },
+                {
+                    url: "01iBef74hD0",
+                    title: "VLOG | 연남동 데이트, 여름이었다..| 연남 최애 마제소바집 | 셀프사진관 꿀팁 | 어썸마운틴 | 연남동 감성 편집샵 | 홍대 데이트 코스 | 여권/증명사진 맛집 추천",
+                    youtuber: "정현이오 jhyuniyo",
+                    place: "라비헤어 홍대점|오디티모드 홍대|거북이의꿈 연남|아티웨이브"
+                },
+                {
+                    url: "sE2TX16FwlM",
+                    title: "연남동 데이트 코스｜직장인 주말 브이로그｜홍대 카카오프렌즈샵｜카페 비포블루밍｜디즈니 공식 팝업 스토어｜인생네컷 디즈니 부스 ｜경의선 숲길｜서강대 맛집 돼파｜대파게티",
+                    youtuber: "나이한",
+                    place: "홍대 카카오프렌즈샵|비포블루밍|경의선숲길"
+                },
+                {
+                    url: "21YQAI1vxKY",
+                    title: "서울 홍대 데이트코스 전시회 볼거리 총 집합소, 코코넛박스 러브뮤지엄 다녀옴. / 친구놈이랑 NFT갤러리 + 대형 볼풀 개꿀잼",
+                    youtuber: "동네형들",
+                    place: "코코넛박스"
+                },
+                {
+                    url: "zDBgT7EOcB0",
+                    title: "[VLOG] 홍대 이색데이트! 같이 가실래요?| 홍대,연남동 데이트| 오사이초밥, 씨더라이트, 가성비 스시 오마카세, 연남동 맛집, 이색데이트, 암흑카페, 데이트 코스 추천",
+                    youtuber: "유페이지",
+                    place: "오사이초밥 홍대|씨더라이트"
+                },
+                {
+                    url: "8FUJJR-DA_A",
+                    title: "연남동 데이트 코스 연남동 카페, 소품샵, 신상핫플 칵테일바, 수제버거 맛집 (feat. 버바나, 엘리카메라, 띵크오브 연남, 커피냅로스터스, 브래디스)",
+                    youtuber: "효시리",
+                    place: "버바나|엘리카메라 연남|띵크오브 연남|커피냅로스터스 연남"
+                },
+            ];
+
+            var container = document.getElementById("grid-container");
+
+            gridItemData.forEach(function(item) {
+                var gridItem = document.createElement("div");
+                gridItem.className = "grid-item";
+
+                gridItem.innerHTML = `
+                    <div class="front">
+                        <div class="container">
+                            <img width="560" height="315" src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
+                            class="youtube-thumbnail" data-video-id="${item.url}">
+                        </div>
+                        <div class="grid-item-text bold-text">
+                            ${item.title}
+                        </div>
+                        <div class="grid-item-text gray-text">
+                            ${item.youtuber}
+                        </div>
+                        <div class="grid-item-tags">
+                            ${item.place.split('|').map(tag => `<div class="tag" onclick="showPopup('#${tag}')">#${tag}</div>`).join(' ')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(gridItem);
+            });
+
+            var tags = document.querySelectorAll('.tag');
+            tags.forEach(function(tag) {
+                setRandomBackgroundColor(tag);
+            });
+
+            var elements = document.querySelectorAll('.grid-item-text');
+            elements.forEach(function(element) {
+                var text = element.textContent;
+                element.textContent = truncateText(text, 57); // 최대 길이 조절
+            });
+        });
+
+        // 페이지의 상단으로 스르륵 스크롤되도록 하는 함수
+        function scrollToTop() {
+            const scrollDuration = 600; // 스크롤 지속 시간 (밀리초)
+            const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+            const scrollInterval = setInterval(function() {
+                if (window.scrollY !== 0) {
+                    window.scrollBy(0, scrollStep);
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, 15);
+        }
+
+        // 스크롤 위치가 일정 값 이상일 때 "To Top" 버튼을 표시
+        window.onscroll = function() {
+            const toTopButton = document.getElementById('toTopButton');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                toTopButton.style.display = 'block';
+            } else {
+                toTopButton.style.display = 'none';
+            }
+        };
+    </script>
+
+    <!-- 웹 페이지의 제목 지정 -->
+    <title>데이튜브::홈</title>
+</head>
+
+<!-- 웹 문서의 모양 선언 -->
+<body class="container">
+<header>
+    <h1>데이튜브</h1>
+</header>
+<main>
+    <div class="grid-container" id="grid-container"></div>
+</main>
+<button id="toTopButton" onClick="scrollToTop()">↑</button>
+</body>
+</html>

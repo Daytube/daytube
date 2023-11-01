@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" data-bs-theme="auto"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- 웹 문서의 속성 선언 -->
+<head>
+    <!-- metaData 정의 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        h1 {
+            margin: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 10px auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        .grid-item {
+            background-color: #ddd;
+            padding: 10px;
+            margin-bottom: 5%;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* 테두리가 둥근 직사각형 스타일 적용 */
+        }
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .grid-item-text {
+            padding-top: 2%;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .grid-item .front img {
+            max-width: 100%; /* 이미지의 최대 너비를 100%로 설정 */
+            height: auto; /* 높이 자동으로 조정 */
+        }
+        .grid-item-text.bold-text {
+            font-weight: bold;
+        }
+        .grid-item-text.gray-text {
+            color: gray;
+        }
+        .grid-item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+            padding-top: 2%;
+        }
+        .tag {
+            color: white;
+            background-color: blue;
+            padding: 5px 10px;
+            border-radius: 20px; /* 테두리가 둥근 직사각형 스타일 적용 */
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.1s;
+            cursor: pointer;
+        }
+        .tag:hover {
+            transform: translateY(-2.5px);
+        }
+
+        /* "To Top" 버튼 스타일 */
+        #toTopButton {
+            display: none; /* 페이지 로드 시 숨김 */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1;
+            width: 40px; /* 동일한 너비와 높이로 설정하여 원 모양으로 만들기 */
+            height: 40px;
+            background-color: #888; /* 회색 배경색 */
+            color: #fff;
+            border: none;
+            border-radius: 50%; /* 원 모양으로 만들기 */
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 40px; /* 텍스트 세로 중앙 정렬 */
+            text-align: center; /* 텍스트 가로 중앙 정렬 */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        #toTopButton:hover {
+            background-color: #666; /* 호버 시 색상 변경 */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text;
+        }
+
+        // 랜덤 색상 생성 함수
+        function getRandomColor() {
+            var letters = '0123456789';
+            var color = '#';
+            for (var i = 0; i < 3; i++) {
+                color += letters[Math.floor(Math.random() * 10)];
+            }
+            return color;
+        }
+
+        // 랜덤 배경색 적용 함수
+        function setRandomBackgroundColor(tag) {
+            tag.style.backgroundColor = getRandomColor();
+        }
+
+        // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
+        document.addEventListener('DOMContentLoaded', function() {
+            var gridItemData = [
+                {
+                    url: "4yX6BK-JVno",
+                    title: "떠먹여주는 연남동 데이트 코스ㅣ핫플, 연남동 맛집, 연남동 카페, 서울가볼만한 곳, 서울데이트 추천ㅣ차차티클럽, 애프터모닝, 계담다, 도토리 캐리커쳐, 서울콜렉터, 휘겔리후스",
+                    youtuber: "라이프샷 Life shot",
+                    place: "땡스네이쳐|T팩토리"
+                },
+            ];
+
+            var container = document.getElementById("grid-container");
+
+            gridItemData.forEach(function(item) {
+                var gridItem = document.createElement("div");
+                gridItem.className = "grid-item";
+
+                gridItemData.forEach(function (item) {
+                    $.get(
+                        "https://www.googleapis.com/youtube/v3/videos", {
+                            part: 'snippet',
+                            maxResults: 50,
+                            id: item.place,
+                            key: 'AIzaSyBm7AH3SM1gSKXCCgD3DWhXxkkLY1cj1IA'
+                        },
+                        function (data) {
+                            var vDe = data.snippet.description;
+                        }
+                    );
+                });
+
+                gridItem.innerHTML = `
+                    <div class="front">
+                        <div class="container">
+                            <img width="560" height="315" src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
+                            class="youtube-thumbnail" data-video-id="${item.url}">
+                        </div>
+                        <div class="grid-item-text bold-text">
+                            ${item.title}
+                        </div>
+                        <div class="grid-item-text gray-text">
+                            ${item.youtuber}
+                        </div>
+                        <div class="grid-item-tags">
+                            ${item.place.split('|').map(tag => `<div class="tag">#${tag}</div>`).join(' ')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(gridItem);
+            });
+
+            var tags = document.querySelectorAll('.tag');
+            tags.forEach(function(tag) {
+                setRandomBackgroundColor(tag);
+            });
+
+            var elements = document.querySelectorAll('.grid-item-text');
+            elements.forEach(function(element) {
+                var text = element.textContent;
+                element.textContent = truncateText(text, 45); // 최대 길이 조절
+            });
+        });
+
+        // 페이지의 상단으로 스르륵 스크롤되도록 하는 함수
+        function scrollToTop() {
+            const scrollDuration = 600; // 스크롤 지속 시간 (밀리초)
+            const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+            const scrollInterval = setInterval(function() {
+                if (window.scrollY !== 0) {
+                    window.scrollBy(0, scrollStep);
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, 15);
+        }
+
+        // 스크롤 위치가 일정 값 이상일 때 "To Top" 버튼을 표시
+        window.onscroll = function() {
+            const toTopButton = document.getElementById('toTopButton');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                toTopButton.style.display = 'block';
+            } else {
+                toTopButton.style.display = 'none';
+            }
+        };
+    </script>
+
+    <!-- 웹 페이지의 제목 지정 -->
+    <title>데이튜브::홈</title>
+</head>
+
+<!-- 웹 문서의 모양 선언 -->
+<body class="container">
+<header>
+    <h1>데이튜브</h1>
+</header>
+<main>
+    <div class="grid-container" id="grid-container"></div>
+</main>
+<button id="toTopButton" onClick="scrollToTop()">↑</button>
+</body>
+</html>
