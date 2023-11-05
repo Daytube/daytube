@@ -46,7 +46,6 @@
         .grid-item {
             background-color: #ddd;
             padding: 10px;
-            margin-bottom: 5%;
             text-align: center;
             transform-style: preserve-3d;
             transition: transform 0.5s;
@@ -518,8 +517,8 @@
 
                 gridItem.innerHTML = `
                     <div class="front">
-                        <div class="container">
-                            <img width="368" height="294" src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
+                        <div class="container" style="width: 360px; height: 240px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                            <img src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
                             class="youtube-thumbnail" data-video-id="${item.url}">
                         </div>
                         <div class="grid-item-text bold-text">
@@ -534,22 +533,22 @@
                     </div>
                 `;
 
-                // 이벤트 리스너를 추가하여 마우스 오버 시 YouTube 아이프렘으로 교체
+                // 이벤트 리스너를 추가하여 마우스 오버 시 YouTube 아이프레임으로 교체
                 gridItem.querySelector('.youtube-thumbnail').addEventListener('mouseover', function() {
                     var videoId = this.getAttribute('data-video-id');
                     var thumbnail = this;
 
-                    // 이미지 대신 아이프렘으로 교체
+                    // 이미지 대신 아이프레임으로 교체
                     var iframe = document.createElement('iframe');
-                    iframe.width = "368";
-                    iframe.height = "290";
+                    iframe.width = "360";
+                    iframe.height = "240";
                     iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
                     iframe.allowfullscreen = true;
 
-                    // 썸네일 이미지를 아이프렘으로 교체
+                    // 썸네일 이미지를 아이프레임으로 교체
                     this.parentNode.replaceChild(iframe, this);
 
-                    // 마우스가 아이프렘을 떠났을 때 다시 썸네일 이미지로 교체
+                    // 마우스가 아이프레임을 떠났을 때 다시 썸네일 이미지로 교체
                     iframe.addEventListener('mouseout', function() {
                         this.parentNode.replaceChild(thumbnail, this);
                     });
