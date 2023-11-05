@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Change size of video, iframe's Container">
+    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Add modal for google map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
     </list>
@@ -119,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699157077386</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add modal for google map">
+      <created>1699175841161</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699175841161</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +137,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="pocj8ur4in" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -140,6 +174,7 @@
     <MESSAGE value="Change Video Size" />
     <MESSAGE value="Update home.html" />
     <MESSAGE value="Change size of video, iframe's Container" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change size of video, iframe's Container" />
+    <MESSAGE value="Add modal for google map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add modal for google map" />
   </component>
 </project>

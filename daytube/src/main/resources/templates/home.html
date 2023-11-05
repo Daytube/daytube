@@ -488,6 +488,29 @@
             closeModalButton.addEventListener("click", function () {
                 modal.style.display = "none";
             });
+
+            // 모달이 열릴 때 페이지의 다른 요소에 대한 이벤트 처리를 일시적으로 제거
+            var mainElement = document.getElementById("grid-container");
+            var toTopButton = document.getElementById("toTopButton");
+
+            mainElement.style.pointerEvents = "none";
+            toTopButton.style.pointerEvents = "none";
+
+            // 모달이 닫힐 때 페이지의 다른 요소에 대한 이벤트 처리를 다시 추가
+            closeModalButton.addEventListener("click", function () {
+                mainElement.style.pointerEvents = "auto";
+                toTopButton.style.pointerEvents = "auto";
+            });
+
+            // Body 요소에 스크롤 막기
+            document.body.style.overflow = "hidden";
+
+            // 닫기 버튼을 클릭하면 모달을 숨기고 스크롤을 활성화
+            var closeModalButton = document.getElementById("closeModalButton");
+            closeModalButton.addEventListener("click", function () {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto"; // 스크롤 활성화
+            });
         }
 
             // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
