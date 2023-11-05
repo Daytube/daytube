@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Change Video Size" />
+    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Change size of video, iframe's Container">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699156971350</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Change size of video, iframe's Container">
+      <created>1699157077386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699157077386</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +138,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change Video Size" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change Video Size" />
+    <MESSAGE value="Update home.html" />
+    <MESSAGE value="Change size of video, iframe's Container" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change size of video, iframe's Container" />
   </component>
 </project>
