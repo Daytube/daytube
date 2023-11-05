@@ -713,6 +713,7 @@
             // 닫기 버튼을 클릭하면 모달을 숨깁니다.
             var closeModalButton = document.getElementById("closeModalButton");
             closeModalButton.addEventListener("click", function () {
+                document.body.style.overflow = "auto"; // 스크롤 활성화
                 modal.style.display = "none";
             });
 
@@ -731,13 +732,6 @@
 
             // Body 요소에 스크롤 막기
             document.body.style.overflow = "hidden";
-
-            // 닫기 버튼을 클릭하면 모달을 숨기고 스크롤을 활성화
-            var closeModalButton = document.getElementById("closeModalButton");
-            closeModalButton.addEventListener("click", function () {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto"; // 스크롤 활성화
-            });
         }
 
             // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩

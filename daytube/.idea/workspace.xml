@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Change scroll's speed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Add table">
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699181291221</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add table">
+      <created>1699182060156</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699182060156</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +218,7 @@
     <MESSAGE value="Add modal for google map" />
     <MESSAGE value="Disable scroll and autoplay when modal pop" />
     <MESSAGE value="Change scroll's speed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change scroll's speed" />
+    <MESSAGE value="Add table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add table" />
   </component>
 </project>
