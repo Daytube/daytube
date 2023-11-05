@@ -614,7 +614,7 @@
                 var gridItem = document.createElement("div");
                 gridItem.className = "grid-item";
 
-                gridItem.innerHTML = `
+                    gridItem.innerHTML = `
                     <div class="front">
                         <div class="container" style="width: 360px; height: 240px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
                             <img src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
@@ -672,15 +672,21 @@
         function scrollToTop() {
             const scrollDuration = 600; // 스크롤 지속 시간 (밀리초)
             const scrollStep = -window.scrollY / (scrollDuration / 15);
+            const acceleration = 0.1; // 가속도 조절 값
 
+            let currentStep = 0;
             const scrollInterval = setInterval(function() {
+                currentStep++;
+
                 if (window.scrollY !== 0) {
-                    window.scrollBy(0, scrollStep);
+                    const adjustedStep = scrollStep * (1 + acceleration * currentStep);
+                    window.scrollBy(0, adjustedStep);
                 } else {
                     clearInterval(scrollInterval);
                 }
             }, 15);
         }
+
 
         // 스크롤 위치가 일정 값 이상일 때 "To Top" 버튼을 표시
         window.onscroll = function() {

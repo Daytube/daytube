@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Add modal for google map">
+    <list default="true" id="4fa27a7a-2241-4ad6-96ec-cd1ff61def9e" name="변경" comment="Disable scroll and autoplay when modal pop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
     </list>
@@ -34,6 +34,27 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feat/#1" />
+                    <option name="lastUsedInstant" value="1699177657" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -126,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699175841161</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Disable scroll and autoplay when modal pop">
+      <created>1699177438384</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699177438384</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +171,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="pocj8ur4in" />
+                        <option value="feat/#1" />
                       </list>
                     </value>
                   </entry>
@@ -175,6 +203,7 @@
     <MESSAGE value="Update home.html" />
     <MESSAGE value="Change size of video, iframe's Container" />
     <MESSAGE value="Add modal for google map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add modal for google map" />
+    <MESSAGE value="Disable scroll and autoplay when modal pop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable scroll and autoplay when modal pop" />
   </component>
 </project>
