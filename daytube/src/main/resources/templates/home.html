@@ -138,6 +138,29 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* 상단 마진 추가 */
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* 표 헤더 배경색 설정 */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* 짝수 행 배경색 설정 */
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -171,7 +194,12 @@
                     grade: "4.3",
                     hours: "영업시간 화~일 13:00 ~ 22:00",
                     contact: "070-8865-4758",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "애프터모닝",
@@ -179,7 +207,12 @@
                     grade: "4.8",
                     hours: "월,일 10:00 ~ 24:00",
                     contact: "https://www.instagram.com/aftermorning_seoul/",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "도토리캐리커쳐",
@@ -187,7 +220,12 @@
                     grade: "3.5",
                     hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
                     contact: "-",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "서울콜렉터",
@@ -195,7 +233,12 @@
                     grade: "4.4",
                     hours: "영업시간 일 12:00 ~ 19:00",
                     contact: "070-7793-0611",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "땡스네이쳐",
@@ -203,7 +246,12 @@
                     grade: "4.2",
                     hours: "영업시간 매일 12:00 ~ 21:00",
                     contact: "02-332-7470",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "T팩토리",
@@ -211,7 +259,12 @@
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
                     contact: "02-1599-2641",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "청수당공명",
@@ -219,7 +272,12 @@
                     grade: "3.8",
                     hours: "영업시간 매일 11:00 ~ 22:00",
                     contact: "070-7791-7972",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "Deweet",
@@ -227,7 +285,12 @@
                     grade: "4.2",
                     hours: "영업시간 수~일 12:00 ~ 23:00",
                     contact: "02-324-2017",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "루나씨엘로",
@@ -235,7 +298,12 @@
                     grade: "4.1",
                     hours: "매일 12:00 ~ 23:00 매일 휴게시간 15:00 ~ 17:00",
                     contact: "070-4110-3815",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "앤티크커피연남",
@@ -243,7 +311,12 @@
                     grade: "3.1",
                     hours: "영업시간 매일 10:00 ~ 22:00",
                     contact: "-",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "코리코카페",
@@ -251,7 +324,12 @@
                     grade: "4.2",
                     hours: "영업시간 매일 11:00 ~ 20:00",
                     contact: "02-6373-3346",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "도토리캐리커쳐",
@@ -259,7 +337,12 @@
                     grade: "3.5",
                     hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
                     contact: "-",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "카페꼼마연남",
@@ -267,7 +350,12 @@
                     grade: "5.0",
                     hours: "영업시간 매일 10:30 ~ 22:00",
                     contact: "070-4179-2205",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "마우디",
@@ -275,7 +363,12 @@
                     grade: "4.4",
                     hours: "영업시간 매일 11:30 ~ 21:30",
                     contact: "02-6052-4522",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "지구샵 연남",
@@ -283,7 +376,12 @@
                     grade: "4.2",
                     hours: "영업시간 월,수,목,금,토,일 11:00 ~ 21:30",
                     contact: "02-812-2050",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "하쿠텐라멘",
@@ -291,7 +389,12 @@
                     grade: "4.5",
                     hours: "월,화,목,금,토,일 11:30 ~ 21:00 월,화,목,금,토,일 휴게시간 15:00 ~ 17:00",
                     contact: "02-3144-3758",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "네시사분",
@@ -299,7 +402,12 @@
                     grade: "4.5",
                     hours: "영업시간 화,수,목,금,일 13:00 ~ 22:00",
                     contact: "02-6405-3877",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "돈룩업 연남",
@@ -307,7 +415,12 @@
                     grade: "4.8",
                     hours: "매일 00:00 ~ 24:00",
                     contact: "0507-1331-8613",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "소이연남 연남",
@@ -315,7 +428,12 @@
                     grade: "4.0",
                     hours: "매일 11:00 ~ 21:00 매일 휴게시간 15:00 ~ 17:00",
                     contact: "02-323-5130",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "버터앤쉘터 연남",
@@ -323,7 +441,12 @@
                     grade: "4.4",
                     hours: "영업시간 매일 10:00 ~ 21:00",
                     contact: "-",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "T팩토리",
@@ -331,7 +454,12 @@
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
                     contact: "02-1599-2641",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "4233 마음센터",
@@ -339,7 +467,12 @@
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
                     contact: "0507-1357-4418",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "라비헤어 홍대점",
@@ -347,7 +480,12 @@
                     grade: "4.3",
                     hours: "영업시간 월,화,수,목,금,일 11:00 ~ 21:00",
                     contact: "02-325-0401",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "오디티모드 홍대",
@@ -355,7 +493,12 @@
                     grade: "5.0",
                     hours: "영업시간 매일 10:30 ~ 22:00",
                     contact: "02-3145-1735",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "거북이의꿈 연남",
@@ -363,7 +506,12 @@
                     grade: "4.6",
                     hours: "화~일 11:30 ~ 21:00 화~일 휴게시간 15:30 ~ 17:00",
                     contact: "02-336-2633",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "아티웨이브",
@@ -371,7 +519,12 @@
                     grade: "4.4",
                     hours: "영업시간 월,금,토,일 12:00 ~ 20:00",
                     contact: "02-332-2633",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "홍대 카카오프렌즈샵",
@@ -379,7 +532,12 @@
                     grade: "4.3",
                     hours: "영업시간 매일 10:30 ~ 22:00",
                     contact: "02-6010-0104",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "비포블루밍",
@@ -387,7 +545,12 @@
                     grade: "4.2",
                     hours: "영업시간 매일 12:00 ~ 22:00",
                     contact: "https://www.instagram.com/before.blooming",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "경의선숲길",
@@ -395,7 +558,12 @@
                     grade: "4.6",
                     hours: "-",
                     contact: "02-719-8830",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "코코넛박스",
@@ -403,7 +571,12 @@
                     grade: "4.2",
                     hours: "영업시간 매일 09:00 ~ 20:00",
                     contact: "02-3144-6300",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "오사이초밥 홍대",
@@ -411,7 +584,12 @@
                     grade: "3.9",
                     hours: "매일 10:00 ~ 22:00 매일 휴게시간 15:00 ~ 17:00",
                     contact: "02-332-5425",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "씨더라이트",
@@ -419,7 +597,12 @@
                     grade: "3.4",
                     hours: "일요일 휴무",
                     contact: "010-7389-9981",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "버바나",
@@ -427,7 +610,12 @@
                     grade: "4.2",
                     hours: "2023년 10월 16일 ~ 2023년 11월 30일 휴무",
                     contact: "02-332-2498",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "엘리카메라 연남",
@@ -435,7 +623,12 @@
                     grade: "5.0",
                     hours: "영업시간 수~일 15:00 ~ 19:00",
                     contact: "1666-0136",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "띵크오브 연남",
@@ -443,7 +636,12 @@
                     grade: "5.0",
                     hours: "영업시간 화~일 13:00 ~ 19:00",
                     contact: "010-6466-1898",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "커피냅로스터스 연남",
@@ -451,7 +649,12 @@
                     grade: "4.3",
                     hours: "영업시간 토,일 09:00 ~ 20:00",
                     contact: "02-332-4131",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr"
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 }
             ]
 
@@ -468,16 +671,40 @@
         function popModal(placeData) {
             // 모달 창의 내용 업데이트
             var modalContent = document.getElementById("modalContent");
-            modalContent.innerHTML =
-                "<button id=\"closeModalButton\" style=\"position: absolute; top: 10px; right: 10px;\">X</button>\n"
-                + "이름: "+ placeData.name
-                + "<br>위치: " + placeData.location
-                + "<br>평점: " + placeData.grade
-                + "<br>시간: " + placeData.hours
-                + "<br>연락처: " + placeData.contact
-                + "<br><iframe src=\"https://www.google.com/maps/embed?pb=" + placeData.map
-                +"\" width=\"480\" height=\"480\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
-            ;
+            modalContent.innerHTML = `
+    <button id="closeModalButton" style="position: absolute; top: 10px; right: 10px;">X</button>
+    <h2>${placeData.name}</h2>
+    <p>위치: ${placeData.location}</p>
+    <p>평점: ${placeData.grade}</p>
+    <p>시간: ${placeData.hours}</p>
+    <p>연락처: ${placeData.contact}</p>
+    <iframe src="https://www.google.com/maps/embed?pb=${placeData.map}" width="480" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <table>
+        <tr>
+            <td>맛</td>
+            <td>${placeData.맛}</td>
+        </tr>
+        <tr>
+            <td>가성비</td>
+            <td>${placeData.가성비}</td>
+        </tr>
+        <tr>
+            <td>분위기</td>
+            <td>${placeData.분위기}</td>
+        </tr>
+        <tr>
+            <td>서비스</td>
+            <td>${placeData.서비스}</td>
+        </tr>
+        <tr>
+            <td>재방문의사</td>
+            <td>${placeData.재방문의사}</td>
+        </tr>
+    </table>
+`;
+
+// 이하 모달 창 표시 및 닫기 이벤트를 추가하는 코드
+
 
             // 모달 창 표시
             var modal = document.getElementById("myModal");
