@@ -222,3 +222,7 @@ Temporary Items
 
 ### application.properties ###
 *.properties
+
+### Custom ###
+gradlew
+gradlew.bat
