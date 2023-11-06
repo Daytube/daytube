@@ -22,6 +22,12 @@ public class Place {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "video_id")
     private Video video;
+    private String map; // 지도주소
+    private int taste; // 맛
+    private int cost; // 가성비
+    private int mood; // 분위기
+    private int service; // 서비스
+    private int revisiting; // 재방문의사
 
 
 }

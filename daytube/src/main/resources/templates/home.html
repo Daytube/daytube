@@ -46,7 +46,6 @@
         .grid-item {
             background-color: #ddd;
             padding: 10px;
-            margin-bottom: 5%;
             text-align: center;
             transform-style: preserve-3d;
             transition: transform 0.5s;
@@ -123,6 +122,45 @@
         #toTopButton:hover {
             background-color: #666; /* 호버 시 색상 변경 */
         }
+
+        .modal {
+            display: none; /* 초기에는 숨겨져 있어야 합니다. */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* 상단 마진 추가 */
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* 표 헤더 배경색 설정 */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* 짝수 행 배경색 설정 */
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -155,267 +193,548 @@
                     location: "서울 마포구 동교로30길 6 4,5층",
                     grade: "4.3",
                     hours: "영업시간 화~일 13:00 ~ 22:00",
-                    contact: "070-8865-4758"
+                    contact: "070-8865-4758",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "애프터모닝",
                     location: "서울 마포구 연희로1길 29 2층",
                     grade: "4.8",
                     hours: "월,일 10:00 ~ 24:00",
-                    contact: "https://www.instagram.com/aftermorning_seoul/"
+                    contact: "https://www.instagram.com/aftermorning_seoul/",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "도토리캐리커쳐",
                     location: "서울 마포구 동교로38길 34 지하1층",
                     grade: "3.5",
                     hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
-                    contact: "-"
+                    contact: "-",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "서울콜렉터",
                     location: "서울 마포구 성미산로 191 2층 201호",
                     grade: "4.4",
                     hours: "영업시간 일 12:00 ~ 19:00",
-                    contact: "070-7793-0611"
+                    contact: "070-7793-0611",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "땡스네이쳐",
                     location: "서울 마포구 홍익로 10 푸르지오상가 지하1층 121호",
                     grade: "4.2",
                     hours: "영업시간 매일 12:00 ~ 21:00",
-                contact: "02-332-7470"
-        },
+                    contact: "02-332-7470",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,비
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "T팩토리",
                     location: "서울 마포구 양화로 144 1층",
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
-                contact: "02-1599-2641"
-        },
+                    contact: "02-1599-2641",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "청수당공명",
                     location: "서울 마포구 성미산로 152",
                     grade: "3.8",
                     hours: "영업시간 매일 11:00 ~ 22:00",
-                contact: "070-7791-7972"
-        },
+                    contact: "070-7791-7972",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "Deweet",
                     location: "서울 마포구 동교로 242-5 2층",
                     grade: "4.2",
                     hours: "영업시간 수~일 12:00 ~ 23:00",
-                contact: "02-324-2017"
-        },
+                    contact: "02-324-2017",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "루나씨엘로",
                     location: "서울 마포구 동교로34길 21 2,3층",
                     grade: "4.1",
                     hours: "매일 12:00 ~ 23:00 매일 휴게시간 15:00 ~ 17:00",
-                contact: "070-4110-3815"
-        },
+                    contact: "070-4110-3815",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "앤티크커피연남",
                     location: "서울 마포구 연희로 25-1 1층",
                     grade: "3.1",
                     hours: "영업시간 매일 10:00 ~ 22:00",
-                contact: "-"
-        },
+                    contact: "-",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "코리코카페",
                     location: "서울 마포구 성미산로 165-7 지하1층, 1~2층",
                     grade: "4.2",
                     hours: "영업시간 매일 11:00 ~ 20:00",
-                contact: "02-6373-3346"
-        },
+                    contact: "02-6373-3346",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "도토리캐리커쳐",
                     location: "서울 마포구 동교로38길 34 지하1층",
                     grade: "3.5",
                     hours: "매일 12:00 ~ 21:00 매일 휴게시간 16:00 ~ 17:00",
-                contact: "-"
-        },
+                    contact: "-",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "카페꼼마연남",
                     location: "서울 마포구 포은로 49",
                     grade: "5.0",
                     hours: "영업시간 매일 10:30 ~ 22:00",
-                contact: "070-4179-2205"
-        },
+                    contact: "070-4179-2205",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "마우디",
                     location: "서울 서대문구 연희로11길 18 1층",
                     grade: "4.4",
                     hours: "영업시간 매일 11:30 ~ 21:30",
-                contact: "02-6052-4522"
-        },
+                    contact: "02-6052-4522",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "지구샵 연남",
                     location: "서울 마포구 성미산로 155 1층",
                     grade: "4.2",
                     hours: "영업시간 월,수,목,금,토,일 11:00 ~ 21:30",
-                contact: "02-812-2050"
-        },
+                    contact: "02-812-2050",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "하쿠텐라멘",
                     location: "서울 마포구 동교로 266-12",
                     grade: "4.5",
                     hours: "월,화,목,금,토,일 11:30 ~ 21:00 월,화,목,금,토,일 휴게시간 15:00 ~ 17:00",
-                contact: "02-3144-3758"
-        },
+                    contact: "02-3144-3758",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "네시사분",
                     location: "서울 마포구 성미산로 190-8 1층",
                     grade: "4.5",
                     hours: "영업시간 화,수,목,금,일 13:00 ~ 22:00",
-                contact: "02-6405-3877"
-        },
+                    contact: "02-6405-3877",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "돈룩업 연남",
                     location: "서울 마포구 동교로46길 33",
                     grade: "4.8",
                     hours: "매일 00:00 ~ 24:00",
-                contact: "0507-1331-8613"
-        },
+                    contact: "0507-1331-8613",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "소이연남 연남",
                     location: "서울 마포구 동교로 267 1층",
                     grade: "4.0",
                     hours: "매일 11:00 ~ 21:00 매일 휴게시간 15:00 ~ 17:00",
-                contact: "02-323-5130"
-        },
+                    contact: "02-323-5130",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "버터앤쉘터 연남",
                     location: "서울 마포구 성미산로 170 102호",
                     grade: "4.4",
                     hours: "영업시간 매일 10:00 ~ 21:00",
-                contact: "-"
-        },
+                    contact: "-",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "T팩토리",
                     location: "서울 마포구 양화로 144 1층",
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
-                contact: "02-1599-2641"
-        },
+                    contact: "02-1599-2641",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "4233 마음센터",
                     location: "서울 마포구 월드컵북로4길 43 지하1층",
                     grade: "3.5",
                     hours: "영업시간 매일 11:00 ~ 21:00",
-                contact: "0507-1357-4418"
-        },
+                    contact: "0507-1357-4418",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "라비헤어 홍대점",
                     location: "서울 마포구 양화로 100 2층",
                     grade: "4.3",
                     hours: "영업시간 월,화,수,목,금,일 11:00 ~ 21:00",
-                contact: "02-325-0401"
-        },
+                    contact: "02-325-0401",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "오디티모드 홍대",
                     location: "서울 서대문구 연세로 13 유플렉스 지하 1층",
                     grade: "5.0",
                     hours: "영업시간 매일 10:30 ~ 22:00",
-                contact: "02-3145-1735"
-        },
+                    contact: "02-3145-1735",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "거북이의꿈 연남",
                     location: "서울 마포구 성미산로 190-31",
                     grade: "4.6",
                     hours: "화~일 11:30 ~ 21:00 화~일 휴게시간 15:30 ~ 17:00",
-                contact: "02-336-2633"
-        },
+                    contact: "02-336-2633",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "아티웨이브",
                     location: "서울 마포구 동교로46길 12 1,5층 101호",
                     grade: "4.4",
                     hours: "영업시간 월,금,토,일 12:00 ~ 20:00",
-                contact: "02-332-2633"
-        },
+                    contact: "02-332-2633",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "홍대 카카오프렌즈샵",
                     location: "서울 마포구 양화로 162 좋은사람들빌딩 1~3층",
                     grade: "4.3",
                     hours: "영업시간 매일 10:30 ~ 22:00",
-                contact: "02-6010-0104"
-        },
+                    contact: "02-6010-0104",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "비포블루밍",
                     location: "서울 마포구 양화로23길 28",
                     grade: "4.2",
                     hours: "영업시간 매일 12:00 ~ 22:00",
-                contact: "https://www.instagram.com/before.blooming"
+                    contact: "https://www.instagram.com/before.blooming",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "경의선숲길",
                     location: "서울 마포구 동교동 190-1",
                     grade: "4.6",
                     hours: "-",
-                    contact: "02-719-8830"
+                    contact: "02-719-8830",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "코코넛박스",
                     location: "서울 마포구 홍익로3길 20 서교프라자 지하2층",
                     grade: "4.2",
                     hours: "영업시간 매일 09:00 ~ 20:00",
-                contact: "02-3144-6300"
-        },
+                    contact: "02-3144-6300",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "오사이초밥 홍대",
                     location: "서울 마포구 연희로1길 11 2층",
                     grade: "3.9",
                     hours: "매일 10:00 ~ 22:00 매일 휴게시간 15:00 ~ 17:00",
-                contact: "02-332-5425"
-        },
+                    contact: "02-332-5425",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "씨더라이트",
                     location: "서울 마포구 양화로18안길 16 지하1층",
                     grade: "3.4",
                     hours: "일요일 휴무",
-                    contact: "010-7389-9981"
+                    contact: "010-7389-9981",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "버바나",
                     location: "서울 마포구 월드컵북로6길 88 1층",
                     grade: "4.2",
                     hours: "2023년 10월 16일 ~ 2023년 11월 30일 휴무",
-                    contact: "02-332-2498"
+                    contact: "02-332-2498",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
                 },
                 {
                     name: "엘리카메라 연남",
                     location: "서울 마포구 성암로 28 가좌행복주택 1동 1층 103호",
                     grade: "5.0",
                     hours: "영업시간 수~일 15:00 ~ 19:00",
-                contact: "1666-0136"
-        },
+                    contact: "1666-0136",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "띵크오브 연남",
                     location: "서울 마포구 성미산로29길 30-3 101호",
                     grade: "5.0",
                     hours: "영업시간 화~일 13:00 ~ 19:00",
-                contact: "010-6466-1898"
-        },
+                    contact: "010-6466-1898",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                },
                 {
                     name: "커피냅로스터스 연남",
                     location: "서울 마포구 성미산로27길 70 1층",
                     grade: "4.3",
                     hours: "영업시간 토,일 09:00 ~ 20:00",
-                contact: "02-332-4131"
-        }
+                    contact: "02-332-4131",
+                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
+                    맛 : 10,
+                    가성비 : 10,
+                    분위기 : 10,
+                    서비스 : 10,
+                    재방문의사 : 10
+                }
             ]
 
             name = tag.split("#")[1]
 
             for (var i = 0; i < placeData.length; i++) {
                 if (placeData[i].name === name) {
-                    var matchingPlace = placeData[i];
-                    alert("이름: " + placeData[i].name + "\n위치: " + placeData[i].location + "\n평점: " + placeData[i].grade + "\n시간: " + placeData[i].hours + "\n연락처: " + placeData[i].contact);
+                    popModal(placeData[i]);
                     break;
                 }
             }
         }
 
-        // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
+        function popModal(placeData) {
+            // 모달 창의 내용 업데이트
+            var modalContent = document.getElementById("modalContent");
+            modalContent.innerHTML = `
+    <button id="closeModalButton" style="position: absolute; top: 10px; right: 10px;">X</button>
+    <h2>${placeData.name}</h2>
+    <p>위치: ${placeData.location}</p>
+    <p>평점: ${placeData.grade}</p>
+    <p>시간: ${placeData.hours}</p>
+    <p>연락처: ${placeData.contact}</p>
+    <iframe src="https://www.google.com/maps/embed?pb=${placeData.map}" width="480" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <table>
+        <tr>
+            <td>맛</td>
+            <td>${placeData.맛}</td>
+        </tr>
+        <tr>
+            <td>가성비</td>
+            <td>${placeData.가성비}</td>
+        </tr>
+        <tr>
+            <td>분위기</td>
+            <td>${placeData.분위기}</td>
+        </tr>
+        <tr>
+            <td>서비스</td>
+            <td>${placeData.서비스}</td>
+        </tr>
+        <tr>
+            <td>재방문의사</td>
+            <td>${placeData.재방문의사}</td>
+        </tr>
+    </table>
+`;
+
+// 이하 모달 창 표시 및 닫기 이벤트를 추가하는 코드
+
+
+            // 모달 창 표시
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            // 닫기 버튼을 클릭하면 모달을 숨깁니다.
+            var closeModalButton = document.getElementById("closeModalButton");
+            closeModalButton.addEventListener("click", function () {
+                document.body.style.overflow = "auto"; // 스크롤 활성화
+                modal.style.display = "none";
+            });
+
+            // 모달이 열릴 때 페이지의 다른 요소에 대한 이벤트 처리를 일시적으로 제거
+            var mainElement = document.getElementById("grid-container");
+            var toTopButton = document.getElementById("toTopButton");
+
+            mainElement.style.pointerEvents = "none";
+            toTopButton.style.pointerEvents = "none";
+
+            // 모달이 닫힐 때 페이지의 다른 요소에 대한 이벤트 처리를 다시 추가
+            closeModalButton.addEventListener("click", function () {
+                mainElement.style.pointerEvents = "auto";
+                toTopButton.style.pointerEvents = "auto";
+            });
+
+            // Body 요소에 스크롤 막기
+            document.body.style.overflow = "hidden";
+        }
+
+            // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
         document.addEventListener('DOMContentLoaded', function() {
             var gridItemData = [
                 {
@@ -516,10 +835,10 @@
                 var gridItem = document.createElement("div");
                 gridItem.className = "grid-item";
 
-                gridItem.innerHTML = `
+                    gridItem.innerHTML = `
                     <div class="front">
-                        <div class="container">
-                            <img width="560" height="315" src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
+                        <div class="container" style="width: 360px; height: 240px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                            <img src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
                             class="youtube-thumbnail" data-video-id="${item.url}">
                         </div>
                         <div class="grid-item-text bold-text">
@@ -533,6 +852,28 @@
                         </div>
                     </div>
                 `;
+
+                // 이벤트 리스너를 추가하여 마우스 오버 시 YouTube 아이프레임으로 교체
+                gridItem.querySelector('.youtube-thumbnail').addEventListener('mouseover', function() {
+                    var videoId = this.getAttribute('data-video-id');
+                    var thumbnail = this;
+
+                    // 이미지 대신 아이프레임으로 교체
+                    var iframe = document.createElement('iframe');
+                    iframe.width = "360";
+                    iframe.height = "240";
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    iframe.allowfullscreen = true;
+
+                    // 썸네일 이미지를 아이프레임으로 교체
+                    this.parentNode.replaceChild(iframe, this);
+
+                    // 마우스가 아이프레임을 떠났을 때 다시 썸네일 이미지로 교체
+                    iframe.addEventListener('mouseout', function() {
+                        this.parentNode.replaceChild(thumbnail, this);
+                    });
+                });
+
                 container.appendChild(gridItem);
             });
 
@@ -552,15 +893,21 @@
         function scrollToTop() {
             const scrollDuration = 600; // 스크롤 지속 시간 (밀리초)
             const scrollStep = -window.scrollY / (scrollDuration / 15);
+            const acceleration = 0.1; // 가속도 조절 값
 
+            let currentStep = 0;
             const scrollInterval = setInterval(function() {
+                currentStep++;
+
                 if (window.scrollY !== 0) {
-                    window.scrollBy(0, scrollStep);
+                    const adjustedStep = scrollStep * (1 + acceleration * currentStep);
+                    window.scrollBy(0, adjustedStep);
                 } else {
                     clearInterval(scrollInterval);
                 }
             }, 15);
         }
+
 
         // 스크롤 위치가 일정 값 이상일 때 "To Top" 버튼을 표시
         window.onscroll = function() {
@@ -587,4 +934,9 @@
 </main>
 <button id="toTopButton" onClick="scrollToTop()">↑</button>
 </body>
+<!-- 모달 창 -->
+<div class="modal" id="myModal">
+    <div class="modal-content" id="modalContent">
+    </div>
+</div>
 </html>
