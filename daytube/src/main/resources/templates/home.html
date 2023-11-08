@@ -194,12 +194,12 @@
                     grade: "4.3",
                     hours: "영업시간 화~일 13:00 ~ 22:00",
                     contact: "070-8865-4758",
-                    map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
-                    맛 : 10,
-                    가성비 : 10,
-                    분위기 : 10,
-                    서비스 : 10,
-                    재방문의사 : 10
+                    map: "!1m18!1m12!1m3!1d3162.7662888051477!2d126.92190997582388!3d37.56056972447032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c993a183701b9%3A0x3bea46482780917c!2z7LCo7LCo7Yuw7YG065-9!5e0!3m2!1sko!2skr!4v1699420601826!5m2!1sko!2skr",
+                    맛 : 8,
+                    가성비 : 5,
+                    분위기 : 9,
+                    서비스 : 8,
+                    재방문의사 : 7
                 },
                 {
                     name: "애프터모닝",
@@ -248,7 +248,7 @@
                     contact: "02-332-7470",
                     map: "!1m18!1m12!1m3!1d25305.462559764237!2d126.88738127431637!3d37.55075629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1699175388367!5m2!1sko!2skr",
                     맛 : 10,
-                    가성비 : 10,비
+                    가성비 : 10,
                     분위기 : 10,
                     서비스 : 10,
                     재방문의사 : 10
@@ -713,7 +713,6 @@
             // 닫기 버튼을 클릭하면 모달을 숨깁니다.
             var closeModalButton = document.getElementById("closeModalButton");
             closeModalButton.addEventListener("click", function () {
-                document.body.style.overflow = "auto"; // 스크롤 활성화
                 modal.style.display = "none";
             });
 
@@ -732,9 +731,16 @@
 
             // Body 요소에 스크롤 막기
             document.body.style.overflow = "hidden";
+
+            // 닫기 버튼을 클릭하면 모달을 숨기고 스크롤을 활성화
+            var closeModalButton = document.getElementById("closeModalButton");
+            closeModalButton.addEventListener("click", function () {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto"; // 스크롤 활성화
+            });
         }
 
-            // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
+        // 페이지 로드 시 모든 태그의 배경색 랜덤 적용, 최대 길이 조절, 데이터 바인딩
         document.addEventListener('DOMContentLoaded', function() {
             var gridItemData = [
                 {
@@ -835,7 +841,7 @@
                 var gridItem = document.createElement("div");
                 gridItem.className = "grid-item";
 
-                    gridItem.innerHTML = `
+                gridItem.innerHTML = `
                     <div class="front">
                         <div class="container" style="width: 360px; height: 240px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
                             <img src="${"https://img.youtube.com/vi/" + item.url + "/0.jpg"}"
